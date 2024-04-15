@@ -1,6 +1,7 @@
 import { useDataContext } from "@/context/DataContext";
+import React from "react";
 
-const Brief = () => {
+const Brief: React.FC = () => {
   const { data } = useDataContext();
 
   if (data === null) return null;
@@ -38,7 +39,7 @@ const Brief = () => {
           </span>
         </div>
       </div>
-      <div className="box">Gráficos</div>
+      <div className="box mb">Gráficos</div>
     </section>
   );
 };
