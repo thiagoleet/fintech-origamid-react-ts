@@ -1,4 +1,5 @@
 import useFetch from "@/hooks/useFetch";
+import formatDate from "@/util/formatDate";
 import React from "react";
 
 const SALES_URL = "https://data.origamid.dev/vendas";
@@ -41,10 +42,7 @@ function getDate(n: number) {
   const date = new Date();
   date.setDate(date.getDate() - n);
 
-  const dd = String(date.getDate()).padStart(2, "0");
-  const mm = String(date.getMonth() + 1).padStart(2, "0");
-  const yyyy = String(date.getFullYear());
-  return `${yyyy}-${mm}-${dd}`;
+  return formatDate(date);
 }
 
 export const DataContextProvider = ({ children }: React.PropsWithChildren) => {
