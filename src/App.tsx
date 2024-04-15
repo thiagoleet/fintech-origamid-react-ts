@@ -3,16 +3,19 @@ import "./Style.css";
 import Brief from "@pages/Brief/Brief";
 import Header from "@components/UI/Header";
 import Sidenav from "@components/UI/Sidenav";
+import { DataContextProvider } from "@/context/DataContext";
 
 function App() {
   return (
-    <div>
-      <Sidenav />
-      <main>
-        <Header />
-        <Brief />
-      </main>
-    </div>
+    <DataContextProvider>
+      <div>
+        <Sidenav />
+        <main>
+          <Header />
+          <Brief />
+        </main>
+      </div>
+    </DataContextProvider>
   );
 }
 

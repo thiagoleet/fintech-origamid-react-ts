@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": [
@@ -34,14 +35,11 @@
       "@assets/*": [
         "src/assets/*"
       ],
-      "@store/*": [
-        "src/store/*"
-      ],
       "@util/*": [
         "src/util/*"
       ],
-      "@features/*": [
-        "src/store/features/*"
+      "@context/*": [
+        "src/context/*"
       ]
     }
   },
