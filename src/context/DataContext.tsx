@@ -1,7 +1,7 @@
 import useFetch from "@/hooks/useFetch";
 import React from "react";
 
-const SALES_URL = "https://data.origamid.dev/vendas/";
+const SALES_URL = "https://data.origamid.dev/vendas";
 
 type TStatus = "pago" | "procesando" | "falha";
 
@@ -11,6 +11,10 @@ interface IDataContext {
   data: IVenda[] | null;
   error: string | null;
   loading: boolean;
+  inicio: string;
+  final: string;
+  setInicio: React.Dispatch<React.SetStateAction<string>>;
+  setFinal: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface IVenda {
@@ -33,13 +37,31 @@ export const useDataContext = () => {
   return context;
 };
 
+function getDate(n: number) {
+  const date = new Date();
+  date.setDate(date.getDate() - n);
+
+  const dd = String(date.getDate()).padStart(2, "0");
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yyyy = String(date.getFullYear());
+  return `${yyyy}-${mm}-${dd}`;
+}
+
 export const DataContextProvider = ({ children }: React.PropsWithChildren) => {
-  const { data, loading, error } = useFetch<IVenda[]>(SALES_URL, {
-    method: "GET",
-  });
+  const [inicio, setInicio] = React.useState(getDate(0));
+  const [final, setFinal] = React.useState(getDate(14));
+
+  const { data, loading, error } = useFetch<IVenda[]>(
+    `${SALES_URL}/?inicio=${inicio}&final=${final}`,
+    {
+      method: "GET",
+    }
+  );
 
   return (
-    <DataContext.Provider value={{ data, loading, error }}>
+    <DataContext.Provider
+      value={{ data, loading, error, inicio, setInicio, final, setFinal }}
+    >
       {children}
     </DataContext.Provider>
   );
