@@ -1,8 +1,19 @@
 import React from "react";
-import "./App.css";
+import "./Style.css";
+import Brief from "@pages/Brief/Brief";
+import Header from "@components/UI/Header";
+import Sidenav from "@components/UI/Sidenav";
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Sidenav />
+      <main>
+        <Header />
+        <Brief />
+      </main>
+    </div>
+  );
 }
 
 export default App;
