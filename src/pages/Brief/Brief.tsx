@@ -1,3 +1,4 @@
+import SalesChart from "@/components/SalesChart";
 import { useDataContext } from "@/context/DataContext";
 import React from "react";
 
@@ -39,7 +40,9 @@ const Brief: React.FC = () => {
           </span>
         </div>
       </div>
-      <div className="box mb">Gráficos</div>
+      <div className="box mb">
+        <SalesChart data={data} />
+      </div>
     </section>
   );
 };

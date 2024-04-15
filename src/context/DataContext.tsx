@@ -4,7 +4,7 @@ import React from "react";
 
 const SALES_URL = "https://data.origamid.dev/vendas";
 
-type TStatus = "pago" | "procesando" | "falha";
+type TStatus = "pago" | "processando" | "falha";
 
 type TPagamento = "boleto" | "cartao" | "pix";
 
