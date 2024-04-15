@@ -15,18 +15,6 @@ body {
   background-color: var(--color-4);
 }
 
-.box {
-  padding: var(--gap);
-  border-radius: var(--gap);
-  background-color: var(--color-5);
-}
-
-button {
-  font-family: sans-serif;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
 h1,
 h2,
 h3 {
@@ -38,6 +26,18 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.box {
+  padding: var(--gap);
+  border-radius: var(--gap);
+  background-color: var(--color-5);
+}
+
+button {
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .flex {
@@ -77,8 +77,39 @@ ul {
   display: grid;
   padding: var(--gap);
   gap: var(--gap);
+  grid-template-columns: 240px auto;
 }
 
+/* sidenav */
+.sidenav li {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-s);
+}
+
+.sidenav li span {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--color-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--gap);
+}
+
+.sidenav li a {
+  flex: 1;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--color-1);
+  padding: var(--gap-s) 0;
+}
+
+.sidenav li:hover span {
+  background-color: var(--color-3);
+}
+
+/* resumo */
 .resumo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -90,6 +121,7 @@ ul {
   color: var(--color-1);
 }
 
+/* venda */
 .venda {
   display: grid;
   grid-template-columns: auto auto 1fr;
@@ -105,4 +137,11 @@ ul {
 .venda a {
   text-decoration: none;
   color: inherit;
+}
+
+/* daterange */
+.dataRange {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
 }
