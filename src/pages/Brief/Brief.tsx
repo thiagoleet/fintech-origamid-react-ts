@@ -34,7 +34,7 @@ const Brief: React.FC = () => {
           <h2>Processando</h2>
           <span>
             {data
-              .filter((i) => i.status === "procesando")
+              .filter((i) => i.status === "processando")
               .reduce((acc, item) => acc + item.preco, 0)
               .toLocaleString("pt-br", { style: "currency", currency: "BRL" })}
           </span>
